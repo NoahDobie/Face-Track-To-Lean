@@ -12,7 +12,7 @@ from pygrabber.dshow_graph import FilterGraph
 logging.basicConfig(level=logging.INFO)
 
 class Controller:
-    def __init__(self, root):
+    def __init__(self, root, config_path):
         self.root = root
         self.tracking_enabled = False
         self.preview_enabled = True
@@ -22,7 +22,7 @@ class Controller:
         self.flip = False
         self.selected_camera_index = 0  # Initialize selected camera index
 
-        self.config_manager = ConfigManager()
+        self.config_manager = ConfigManager(config_file=config_path)
         self.config = self.config_manager.get_config()
 
         # Initialize GUI after config is loaded
